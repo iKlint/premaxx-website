@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Premaxx Agro Tech LTD{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container top-bar-inner">
+            <span><i class="fas fa-map-marker-alt"></i> Port Harcourt, Rivers State, Nigeria</span>
+            <span><i class="fas fa-phone"></i> +2348146762505</span>
+            <span><i class="fas fa-envelope"></i> info@premaxxagrotech.com</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+                <div class="logo-text">
+                    <span class="logo-main">PREMAXX</span>
+                    <span class="logo-sub">Agro Tech LTD</span>
+                </div>
+            </a>
+
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="/about" class="nav-link {% if request.path == '/about' %}active{% endif %}">About</a></li>
+                <li class="dropdown">
+                    <a href="/services" class="nav-link {% if request.path == '/services' %}active{% endif %}">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/services#machinery"><i class="fas fa-tractor"></i> Machinery & Equipment Hire</a></li>
+                        <li><a href="/services#chemicals"><i class="fas fa-flask"></i> Agro Chemicals</a></li>
+                        <li><a href="/services#labour"><i class="fas fa-users"></i> Farm Labour</a></li>
+                        <li><a href="/services#land"><i class="fas fa-map"></i> Farmland Lease</a></li>
+                    </ul>
+                </li>
+                <li><a href="/quality" class="nav-link {% if request.path == '/quality' %}active{% endif %}">Quality</a></li>
+                <li><a href="/news" class="nav-link {% if request.path == '/news' %}active{% endif %}">News</a></li>
+                <li><a href="/contact" class="nav-link btn-contact {% if request.path == '/contact' %}active{% endif %}">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-seedling"></i></span>
+                        <div class="logo-text">
+                            <span class="logo-main">PREMAXX</span>
+                            <span class="logo-sub">Agro Tech LTD</span>
+                        </div>
+                    </div>
+                    <p>Empowering Nigerian agriculture through modern technology, quality inputs, and reliable services from the heart of Rivers State.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <!-- 
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        -->
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="/services#machinery"><i class="fas fa-chevron-right"></i> Machinery & Equipment Hire</a></li>
+                        <li><a href="/services#chemicals"><i class="fas fa-chevron-right"></i> Agro Chemicals</a></li>
+                        <li><a href="/services#labour"><i class="fas fa-chevron-right"></i> Farm Labour</a></li>
+                        <li><a href="/services#land"><i class="fas fa-chevron-right"></i> Farmland Lease</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="/about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="/quality"><i class="fas fa-chevron-right"></i> Quality</a></li>
+                        <li><a href="/news"><i class="fas fa-chevron-right"></i> News</a></li>
+                        <li><a href="/contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-map-marker-alt"></i> Port Harcourt, Rivers State, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +2348146762505</li>
+                        <li><i class="fas fa-envelope"></i> info@premaxxagrotech.com</li>
+                        <li><i class="fas fa-clock"></i> Mon – Sat: 8:00am – 6:00pm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Premaxx Agro Tech LTD. All rights reserved. | Port Harcourt, Nigeria</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LIVE CHAT POPUP -->
+    <div class="chat-bubble" id="chatBubble">
+        <i class="fas fa-comments"></i>
+        <span class="chat-badge">1</span>
+    </div>
+
+    <div class="chat-popup" id="chatPopup">
+        <div class="chat-header">
+            <div class="chat-agent">
+                <div class="agent-avatar"><i class="fas fa-seedling"></i></div>
+                <div>
+                    <strong>Premaxx Support</strong>
+                    <span class="agent-status"><i class="fas fa-circle"></i> Online</span>
+                </div>
+            </div>
+            <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="chat-msg bot">
+                <p>👋 Welcome to <strong>Premaxx Agro Tech!</strong></p>
+                <p>How can we help you today?</p>
+                <div class="quick-replies">
+                    <button class="qr-btn" data-reply="I need a service">I need a service</button>
+                    <button class="qr-btn" data-reply="I have a question">I have a question</button>
+                    <button class="qr-btn" data-reply="Request a quote">Request a quote</button>
+                </div>
+            </div>
+        </div>
+        <div class="chat-form-wrap" id="chatFormWrap" style="display:none;">
+            <div class="chat-form-inner">
+                <p class="chat-form-title">Fill in your details and we'll get back to you shortly.</p>
+                <input type="text" placeholder="Full Name *" id="cf-name" class="chat-input">
+                <input type="email" placeholder="Email Address *" id="cf-email" class="chat-input">
+                <input type="tel" placeholder="Phone Number" id="cf-phone" class="chat-input">
+                <select id="cf-service" class="chat-input">
+                    <option value="">Service of Interest</option>
+                    <option>Machinery & Equipment Hire</option>
+                    <option>Agro Chemicals</option>
+                    <option>Farm Labour</option>
+                    <option>Farmland Lease</option>
+                    <option>Other</option>
+                </select>
+                <textarea placeholder="Your message..." id="cf-message" class="chat-input" rows="3"></textarea>
+                <button class="chat-submit-btn" id="chatSubmit">Send Message <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <div class="chat-input-bar" id="chatInputBar">
+            <input type="text" placeholder="Type a message..." id="chatInput">
+            <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
