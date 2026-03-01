@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
         navbar && navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
 
+    // Auto calculate years since founded
+    const founded = 2021;
+    const currentYear = new Date().getFullYear();
+    const years = currentYear - founded;
+    const yearsEl = document.getElementById('yearsExp');
+    if (yearsEl) yearsEl.textContent = years + '+';
+
     // ─── HAMBURGER MENU ──────────────────────
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
