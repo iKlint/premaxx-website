@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const founded = 2021;
     const currentYear = new Date().getFullYear();
     const years = currentYear - founded;
+    
+    // Update data-target dynamically so counter animates to correct number
+    const yearsStatEl = document.getElementById('yearsExpStat');
+    if (yearsStatEl) yearsStatEl.setAttribute('data-target', years);
+    
     const yearsEl = document.getElementById('yearsExp');
     if (yearsEl) yearsEl.textContent = years + '+';
 
